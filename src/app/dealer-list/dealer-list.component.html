@@ -1,0 +1,49 @@
+<!-- dealer-list.component.html -->
+<table mat-table [dataSource]="dealers" class="mat-elevation-z8">
+  <!-- Columns defined here -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="contactInfo">
+    <th mat-header-cell *matHeaderCellDef>Mobile No</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.mobile_no }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="whatsapp_no">
+    <th mat-header-cell *matHeaderCellDef>WhatsApp No</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.whatsapp_no }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="company_name">
+    <th mat-header-cell *matHeaderCellDef>Company Name</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.company_name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="pan_no">
+    <th mat-header-cell *matHeaderCellDef>Pan No.</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.pan_no }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let dealer">{{ dealer.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let dealer">
+      <button mat-button [routerLink]="['/dealer/edit', dealer.id]">Edit</button>
+      <button mat-button (click)="deleteDealer(dealer.id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['id', 'name', 'contactInfo','whatsapp_no','company_name','email','pan_no','actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'contactInfo', 'whatsapp_no','company_name','email','pan_no','actions']"></tr>
+</table>

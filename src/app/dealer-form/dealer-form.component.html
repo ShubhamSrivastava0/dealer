@@ -1,0 +1,38 @@
+<!-- dealer-form.component.html -->
+<form [formGroup]="dealerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="dealerForm.get('name')?.invalid">Name is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Mobile No</mat-label>
+      <input matInput formControlName="mobile_no" />
+      <mat-error *ngIf="dealerForm.get('mobile_no')?.invalid">Mobile No is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="company_name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>WhatsApp No</mat-label>
+      <input matInput formControlName="whatsapp_no" />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>Pan No</mat-label>
+      <input matInput formControlName="pan_no" />
+      <mat-error *ngIf="dealerForm.get('pan_no')?.invalid">pan no is required</mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button type="submit" [disabled]="dealerForm.invalid">Save</button>
+  </form>
+  
